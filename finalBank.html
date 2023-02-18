@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+
+    <style>
+        .display {
+            display: flex
+        }
+
+        .top {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .color-span {
+            color: goldenrod
+        }
+
+        .bg-green {
+            background-color: lightseagreen;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            border-color: beige;
+            margin-left: auto;
+            margin-right: auto;
+            width: 25%;
+        }
+
+        h2 {
+            font-size: 40px;
+        }
+
+        .pink {
+            background-color: pink;
+        }
+
+        .fresh {
+            background-color: lightgreen;
+        }
+
+        .width {
+            margin-top: 10%;
+            width: 40%;
+            margin-right: auto;
+            margin-left: auto;
+
+
+        }
+
+        .bottom {
+
+            padding-bottom: 40px;
+        }
+
+        .lightcoral {
+            background-color: lightcoral;
+        }
+
+        .goldenrod {
+            background-color: goldenrod;
+        }
+
+        .input {
+            margin-left: auto;
+            margin-right: auto;
+            width: 60%;
+            border-radius: 5px;
+            border-color: beige;
+
+        }
+
+        .withdraw-btn {
+            margin-top: 10px;
+            background-color: rgba(4, 4, 78, 0.929);
+            color: white;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1 class="top">let's go to <span class="color-span"> moooooney!!!</span></h1>
+    </header>
+    <main>
+
+        <div class="display">
+            <div class="bg-green">
+                <h3> Deposit </h3>
+                <h2>$<span id="deposit-total">00</span></h2>
+            </div>
+            <div class="bg-green pink">
+                <h3>Withdraw </h3>
+                    <h2>$<span id="withdraw-previous">00</span></h2>
+            </div>
+            <div class="bg-green fresh">
+                <h3>balance </h3>
+                    <h2>$<span id="current-Balance">1250</span> </h2>
+            </div>
+        </div>
+        <section>
+            <div class="display top">
+                <div class="bg-green width lightcoral bottom">
+                    <h3>Please Deposit </h3>
+                    <input class="input" type="number" name="" id="deposit-field" placeholder="$ ammount you want to Deposit">
+                    <br>
+                    <button id="btn-deposit" class="withdraw-btn">Deposit</button>
+
+                </div>
+                <div class="bg-green pink width goldenrod bottom">
+                    <h3> Please Withdraw</h3>
+                    <input class="input" type="number" name="" id="withdraw-field" placeholder="$ ammount you want to withdraw">
+                    <br>
+                    <button id="btn-withdraw" class="withdraw-btn">Withdraw</button>
+
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        document.getElementById('btn-deposit').addEventListener('click',function(){
+// first step 1
+            const depositInput = document.getElementById('deposit-field')
+            const depositInputstring = depositInput.value
+            
+            const depositTotal = document.getElementById('deposit-total')
+            const depositTotalString = depositTotal.innerText
+
+
+          
+            const depositInputNumber = parseFloat(depositInputstring)
+            const depositTotalNumber = parseFloat(depositTotalString)
+
+            if(isNaN(depositInputNumber)){
+                alert('please give me a provide number')
+                return
+            }
+
+
+            const totalDeposit = depositInputNumber + depositTotalNumber
+            depositTotal.innerText = totalDeposit
+
+            depositInput.value = ''
+
+
+            // second step 2 add deposite in main balance 
+            const currentBalance = document.getElementById('current-Balance')
+            const currentBalanceString = currentBalance.innerText
+
+            const balance = parseFloat(currentBalanceString)
+
+            const totalBalance = balance + depositInputNumber
+            currentBalance.innerText = totalBalance
+            
+        })
+
+        document.getElementById('btn-withdraw').addEventListener('click',function(){
+            // step 3 add withdraw in previous withdraw
+            const inputWithdraw = document.getElementById('withdraw-field')
+            const inputWithdrawString = inputWithdraw.value;
+
+            const previousWithDraw = document.getElementById('withdraw-previous')
+            const previousWithDrawString = previousWithDraw.innerText
+
+
+            const inputWithdrawNumber = parseFloat(inputWithdrawString)
+            const previousWithdrawNumber = parseFloat(previousWithDrawString)
+
+            if(isNaN(inputWithdrawNumber)){
+                alert('please give me a provide number')
+                return
+            }
+            
+
+            // nice alert er agee diyesi karon withdraw ammmount beshi hole o ekhane 
+            // alert dewar por arr minus korbe na 
+
+
+            // const totalDeposit = inputWithdrawNumber + previousWithdrawNumber
+            // previousWithDraw.innerText = totalDeposit
+            // inputWithdraw.value = ''
+
+
+
+            // step 4 minuse withdraw to currentBalance
+
+            const mainBalance =  document.getElementById('current-Balance')
+            const mainBalanceString = mainBalance.innerText
+            const balance = parseFloat(mainBalanceString)
+
+            const includBalance = balance - inputWithdrawNumber
+
+
+            if(inputWithdrawNumber>balance){
+                alert('sorry you havent enough money')
+                return
+            }
+
+            // eta step 3 kaj
+            const totalDeposit = inputWithdrawNumber + previousWithdrawNumber
+            previousWithDraw.innerText = totalDeposit
+            inputWithdraw.value = ''
+
+            mainBalance.innerText= includBalance;
+        
+        })
+
+    </script>
+   
+
+</body>
+
+</html>

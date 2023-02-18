@@ -1,0 +1,41 @@
+
+
+
+.top{
+    margin-top: 10px;
+    text-align: center;
+}
+.color-span{
+    color : goldenrod
+}
+.background-clr{
+    background-color: aquamarine;
+    width: 75%;
+    margin-right: auto ;
+    margin-left: auto;
+    padding: 20px;
+}
+.loging{
+    font-size: 20px;
+ 
+}
+.top-input{
+    margin-top: 10px;
+}
+.input{
+  width: 75%;   
+  border-color: antiquewhite;
+  border-radius: 5px;
+}
+
+
+.btn{
+    background-color: goldenrod;
+    border-color: aliceblue;
+    border-radius: 5px;
+    color: aliceblue;
+}
+
+.btn :hover {
+background-color: aquamarine;
+}

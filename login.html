@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bap er bank</title>
+    <link rel="stylesheet" href="bank.css">
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+</head>
+
+<body>
+    <header>
+        <h1 class="top">Welcome To Your Baap er <span class="color-span">bank</span></h1>
+    </header>
+    <main>
+        <section class="background-clr">
+            <h3 class="login">
+                please login
+            </h3>
+            <div>
+                <input class="input" type="email" id="user-email" placeholder="Email">
+                <br>
+
+            </div>
+            <div class="top-input">
+                <input class="input" type="password" id="user-password" placeholder="Password">
+            </div>
+            <button id="btn-submit" class="btn top-input">
+                Submit
+            </button>
+
+        </section>
+    </main>
+    
+    <script>
+        document.getElementById('btn-submit').addEventListener('click',function(){
+            const emailUser = document.getElementById('user-email')
+            const emailUserFinal = emailUser.value;
+
+            const passwordUser = document.getElementById('user-password')
+            const passwordUserFinal = passwordUser.value
+         
+
+
+            if(emailUserFinal === 'sontan@baap.com' && passwordUserFinal === 'secrect'){
+                window.location.href = 'finalBank.html'
+            }
+            
+            else{
+                alert('please give me correct details')
+            }
+        })
+    </script>
+</body>
+
+</html>
